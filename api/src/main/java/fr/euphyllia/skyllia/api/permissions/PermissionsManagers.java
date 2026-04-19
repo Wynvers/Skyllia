@@ -51,13 +51,13 @@ public class PermissionsManagers {
      * with an optional Bukkit permission bypass and optional debug logging.
      * <p>
      * Resolution order:
+     * </p>
      * <ol>
      *   <li>If {@code bukkitPermission} is non-null and the player holds it, access is granted immediately.</li>
      *   <li>If the player's role is {@link RoleType#OWNER}, access is always granted.</li>
      *   <li>If the player's role is {@link RoleType#BAN}, access is always denied.</li>
      *   <li>Otherwise, the island's compiled permissions are consulted for the player's role.</li>
      * </ol>
-     * </p>
      *
      * @param player           the player to check.
      * @param island           the island on which the permission is checked.
