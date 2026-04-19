@@ -18,24 +18,23 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: "25"
-          cache: "gradle"
           distribution: "temurin"
+          cache: "maven"
 
       - name: Configure Git User
         run: git config --global user.email "actions@github.com" && git config --global user.name "Github Actions"
 
-      - name: Permission gradlew
-        run: chmod +x gradlew
+      - name: Set version
+        run: echo "BUILD_VERSION=3.0-${{ github.run_number }}" >> $GITHUB_ENV
 
-      - name: Build Skyllia jar
-        run: ./gradlew shadowJar
+      - name: Build Skyllia
+        run: mvn -B clean package -Drevision=${{ env.BUILD_VERSION }}
 
       - name: Collect jars
         run: |
           mkdir -p release
-          cp build/libs/*.jar release/ || true
-          cp addons/*/build/libs/*.jar release/ || true
-          rm -f release/addons-*.jar
+          cp plugin/target/skyllia-plugin-*.jar release/Skyllia-${{ env.BUILD_VERSION }}.jar || true
+          cp addons/*/target/*.jar release/ || true
 
       - name: Upload Snapshot jar
         uses: actions/upload-artifact@v4
@@ -44,11 +43,10 @@ jobs:
           path: release/*.jar
 
       - name: Publish all modules to Nexus
-        run: ./gradlew publish
-
-      - name: Publish to Modrinth (Gradle Minotaur)
-        if: github.event_name != 'pull_request' || (github.event.pull_request.number == 94 && github.event.pull_request.head.repo.full_name == github.repository)
-        run: ./gradlew modrinth
+        run: mvn -B deploy -Drevision=${{ env.BUILD_VERSION }} -DskipTests
+        env:
+          NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
+          NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
 
       - name: Create Release
         if: github.event_name != 'pull_request' || (github.event.pull_request.number == 94 && github.event.pull_request.head.repo.full_name == github.repository)

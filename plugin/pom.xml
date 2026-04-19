@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>fr.euphyllia.skyllia</groupId>
+        <artifactId>Skyllia</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>skyllia-plugin</artifactId>
+    <packaging>jar</packaging>
+
+    <name>Skyllia Plugin</name>
+
+    <properties>
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
+            <version>1.20.6-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>net.kyori</groupId>
+            <artifactId>adventure-text-minimessage</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.kyori</groupId>
+            <artifactId>adventure-text-serializer-legacy</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>me.clip</groupId>
+            <artifactId>placeholderapi</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>dev.faststats.metrics</groupId>
+            <artifactId>bukkit</artifactId>
+            <version>0.18.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Internal modules (compile scope for shading) -->
+        <dependency>
+            <groupId>fr.euphyllia.skyllia</groupId>
+            <artifactId>skyllia-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fr.euphyllia.skyllia</groupId>
+            <artifactId>skyllia-database</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fr.euphyllia.skyllia</groupId>
+            <artifactId>skyllia-hook-worldedit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fr.euphyllia.skyllia</groupId>
+            <artifactId>skyllia-hook-fastasyncworldedit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fr.euphyllia.skyllia</groupId>
+            <artifactId>skyllia-hook-internalworld</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fr.euphyllia.skyllia</groupId>
+            <artifactId>skyllia-hook-canvas</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fr.euphyllia.skyllia</groupId>
+            <artifactId>skyllia-hook-luminol</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fr.euphyllia.skyllia</groupId>
+            <artifactId>skyllia-hook-essentialsx</artifactId>
+        </dependency>
+
+        <!-- NMS modules -->
+        <dependency>
+            <groupId>fr.euphyllia.skyllia</groupId>
+            <artifactId>skyllia-nms-v1_20_R4</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fr.euphyllia.skyllia</groupId>
+            <artifactId>skyllia-nms-v1_21_R1</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fr.euphyllia.skyllia</groupId>
+            <artifactId>skyllia-nms-v1_21_R2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fr.euphyllia.skyllia</groupId>
+            <artifactId>skyllia-nms-v1_21_R3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fr.euphyllia.skyllia</groupId>
+            <artifactId>skyllia-nms-v1_21_R4</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fr.euphyllia.skyllia</groupId>
+            <artifactId>skyllia-nms-v1_21_R5</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fr.euphyllia.skyllia</groupId>
+            <artifactId>skyllia-nms-v1_21_R6</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fr.euphyllia.skyllia</groupId>
+            <artifactId>skyllia-nms-v1_21_R7</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fr.euphyllia.skyllia</groupId>
+            <artifactId>skyllia-nms-v26_1</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <artifactSet>
+                                <includes>
+                                    <include>fr.euphyllia.skyllia:*</include>
+                                </includes>
+                            </artifactSet>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

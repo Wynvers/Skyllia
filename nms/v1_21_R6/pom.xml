@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>fr.euphyllia.skyllia</groupId>
+        <artifactId>skyllia-nms</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>skyllia-nms-v1_21_R6</artifactId>
+    <packaging>jar</packaging>
+
+    <name>Skyllia NMS v1_21_R6</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>fr.euphyllia.skyllia</groupId>
+            <artifactId>skyllia-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>fr.euphyllia.skyllia</groupId>
+            <artifactId>skyllia-nms-v1_21_R5</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Paper dev bundle 1.21.10 - requires paperweight-generated server JAR -->
+        <dependency>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-server</artifactId>
+            <version>1.21.10-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>net.kyori</groupId>
+                    <artifactId>adventure-text-serializer-ansi</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+</project>
