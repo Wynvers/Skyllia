@@ -15,6 +15,17 @@
 
     <name>Skyllia NMS v1_20_R4</name>
 
+    <repositories>
+        <repository>
+            <id>folia-dev-bundle</id>
+            <url>https://github.com/Euphillya/FoliaDevBundle/raw/gh-pages/</url>
+        </repository>
+        <repository>
+            <id>folia-dev-bundle-local</id>
+            <url>file://${project.basedir}/local-repo</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>fr.euphyllia.skyllia</groupId>
