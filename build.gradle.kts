@@ -51,6 +51,12 @@ allprojects {
     apply(plugin = "io.github.goooler.shadow")
     apply(plugin = "maven-publish")
 
+    java {
+        toolchain {
+            languageVersion.set(JavaLanguageVersion.of(25))
+        }
+    }
+
     repositories {
         mavenLocal()
         mavenCentral()
