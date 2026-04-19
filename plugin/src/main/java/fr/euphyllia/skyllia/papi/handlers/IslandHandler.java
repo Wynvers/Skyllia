@@ -3,6 +3,7 @@ package fr.euphyllia.skyllia.papi.handlers;
 import fr.euphyllia.skyllia.api.skyblock.Island;
 import fr.euphyllia.skyllia.api.skyblock.Players;
 import fr.euphyllia.skyllia.papi.SkylliaPAPIUtils;
+import fr.euphyllia.skyllia.utils.IslandExperienceManager;
 import org.bukkit.OfflinePlayer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -33,6 +34,10 @@ import org.jetbrains.annotations.Nullable;
  *   <tr><td colspan="2"><b>— State —</b></td></tr>
  *   <tr><td>island_access</td><td>{@code true} if private, {@code false} if public</td></tr>
  *   <tr><td>island_disabled</td><td>{@code true} if the island is disabled</td></tr>
+ * <p>
+ *   <tr><td colspan="2"><b>— Level —</b></td></tr>
+ *   <tr><td>island_level</td><td>Island level (derived from experience)</td></tr>
+ *   <tr><td>island_experience</td><td>Island experience points</td></tr>
  * </table>
  *
  * <p>Warp-related placeholders are handled by {@link WarpHandler}.
@@ -79,6 +84,9 @@ public class IslandHandler implements PlaceholderHandler {
 
             case "access" -> String.valueOf(island.isPrivateIsland());
             case "disabled" -> String.valueOf(island.isDisable());
+
+            case "level" -> String.valueOf(IslandExperienceManager.getLevel(island));
+            case "experience" -> String.valueOf(IslandExperienceManager.getExperience(island));
 
             default -> null;
         };

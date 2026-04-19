@@ -264,6 +264,16 @@ above-world-max = "The max value is already at the world ceiling. Use a lower va
 success = "The island build height has been successfully updated."
 failed = "The build height could not be updated. Please check the console for more details."
 
+[island.level]
+no-permission = "You do not have permission to view the island level."
+display = "<yellow>Island Level: </yellow><white>%level%</white>\n<yellow>Experience: </yellow><white>%experience%</white>"
+
+[island.admin.exp]
+args-missing = "The command is incomplete: /skylliadmin exp add <player/uuid> <amount>"
+add-success = "Added %amount% experience to %player%'s island. New experience: %experience%, Level: %level%."
+add-failed = "The experience could not be updated."
+nan = "You did not provide a valid number."
+
 [misc]
 unknown-command = "This subcommand does not exist."
 
