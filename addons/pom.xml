@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>fr.euphyllia.skyllia</groupId>
+        <artifactId>Skyllia</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>skyllia-addons</artifactId>
+    <packaging>pom</packaging>
+
+    <name>Skyllia Addons</name>
+
+    <modules>
+        <module>SkylliaBank</module>
+        <module>SkylliaChest</module>
+        <module>SkylliaInsights</module>
+        <module>SkylliaChat</module>
+        <module>SkylliaOre</module>
+        <module>SkylliaChallenge</module>
+        <module>SkylliaAcidRain</module>
+    </modules>
+</project>

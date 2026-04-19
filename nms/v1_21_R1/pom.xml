@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>fr.euphyllia.skyllia</groupId>
+        <artifactId>skyllia-nms</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>skyllia-nms-v1_21_R1</artifactId>
+    <packaging>jar</packaging>
+
+    <name>Skyllia NMS v1_21_R1</name>
+
+    <repositories>
+        <repository>
+            <id>folia-dev-bundle</id>
+            <url>https://github.com/Euphillya/FoliaDevBundle/raw/gh-pages/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>fr.euphyllia.skyllia</groupId>
+            <artifactId>skyllia-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Folia dev bundle 1.21.1 - requires paperweight-generated server JAR -->
+        <dependency>
+            <groupId>dev.folia</groupId>
+            <artifactId>folia-server</artifactId>
+            <version>1.21.1-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+</project>

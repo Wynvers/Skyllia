@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>fr.euphyllia.skyllia</groupId>
+        <artifactId>Skyllia</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>skyllia-nms</artifactId>
+    <packaging>pom</packaging>
+
+    <name>Skyllia NMS</name>
+
+    <modules>
+        <module>v1_20_R4</module>
+        <module>v1_21_R1</module>
+        <module>v1_21_R2</module>
+        <module>v1_21_R3</module>
+        <module>v1_21_R4</module>
+        <module>v1_21_R5</module>
+        <module>v1_21_R6</module>
+        <module>v1_21_R7</module>
+        <module>v26_1</module>
+    </modules>
+</project>
