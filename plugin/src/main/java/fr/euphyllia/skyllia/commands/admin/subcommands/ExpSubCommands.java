@@ -115,4 +115,9 @@ public class ExpSubCommands implements SubCommandInterface {
 
         return Collections.emptyList();
     }
+
+    @Override
+    public String permission() {
+        return "skyllia.admins.commands.island.exp";
+    }
 }
