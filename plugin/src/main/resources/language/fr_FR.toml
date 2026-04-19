@@ -264,6 +264,16 @@ above-world-max = "La valeur max est déjà au plafond du monde. Utilise une val
 success = "La hauteur de l'île a été modifiée avec succès."
 failed = "Le changement de hauteur n'a pas pu être effectué. Veuillez vérifier la console pour plus de détails."
 
+[island.level]
+no-permission = "Vous n'avez pas la permission de voir le niveau de l'île."
+display = "<yellow>Niveau de l'île : </yellow><white>%level%</white>\n<yellow>Expérience : </yellow><white>%experience%</white>"
+
+[island.admin.exp]
+args-missing = "Commande incomplète : /skylliadmin exp add <joueur/uuid> <montant>"
+add-success = "Ajout de %amount% d'expérience à l'île de %player%. Nouvelle expérience : %experience%, Niveau : %level%."
+add-failed = "L'expérience n'a pas pu être mise à jour."
+nan = "Vous n'avez pas indiqué un nombre valide."
+
 [misc]
 unknown-command = "<red>Commande inconnue."
 
